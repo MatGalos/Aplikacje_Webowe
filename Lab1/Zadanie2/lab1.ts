@@ -25,9 +25,12 @@ interface Person {
     
     function filterPersons(persons: Person[], criteria: any): Person[] {
     // TODO: zaimplementować funkcję, która przefiltruje tablicę persons za pomocą predate criteria
-    
+    return persons.filter(criteria);
     }
     
+    function namedAdam(param:any):boolean{
+        return param.name==='Adam';
+        }
     // TODO:
     // 1. Przy pomocy funkcji logPerson wypisać osoby z tablicy users i admins (patrz foreach)
     // 2. Złączyć tablice users i admins i wypisać zawartość złączonej tablicy na konsoli (patrz operator spread)
@@ -36,7 +39,7 @@ interface Person {
 
 
     //1
-
+        console.log('Zadanie 1');
     users.forEach(element => {
         logPerson(element);
     });
@@ -47,12 +50,14 @@ interface Person {
 
 
     //2
+    console.log('Zadanie 2');
     const all=[...users,...admins];
     all.forEach(element=>{
         logPerson(element);
     })
 
     //3
+    console.log('Zadanie 3');
     function isOver25(person:Person){
         const age=person.age;
         if(age>25){
@@ -66,3 +71,8 @@ interface Person {
     })
 
     //4
+    console.log('Zadanie 4');
+    const filter=filterPersons(all,namedAdam);
+    filter.forEach(x=>{
+        logPerson(x);
+    })
