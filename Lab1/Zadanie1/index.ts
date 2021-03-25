@@ -5,7 +5,7 @@ document.body.innerHTML = `<h1>Hello ${imie}</h1>`*/
 
 //druga część zadania 1
 
-class Person{
+class Osoba{
     imie:string;
     nazwisko:string;
     wiek:number;
@@ -21,5 +21,5 @@ class Person{
     }
 }
 
-let J=new Person("John", "Blake", 11);
+let J=new Osoba("John", "Blake", 11);
 document.body.innerHTML=J.Show();
