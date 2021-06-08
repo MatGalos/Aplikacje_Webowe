@@ -1,8 +1,8 @@
-
-
 .cell{
-    height: 300px;
-    width: 300px;
-    border-color: black;
-    border-style: solid;
+    width:200px;
+    height:200px;
+    font-size:180px;
+    text-align: center;
+    color:black;
+    border: 3px solid black;
 }
