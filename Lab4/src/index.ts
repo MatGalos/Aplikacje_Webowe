@@ -8,19 +8,49 @@ class App {
         this.initMenu();        
     }
 
+    
+
     initMenu(): void {
         const menuContainer = <HTMLDivElement>(document.createElement('div')); // kontener menu dostępnych gier
         const gameContainer = <HTMLDivElement>(document.createElement('div')); // kontener główny ekranu z grą
         const list = document.createElement('ul'); // lista pozycji w menu dostępnych gier
-        
-        // TODO: Zaimplementuj wzorzec fabryki/metody fabrykującej, tak aby na podstawie konkretnej wartości z enum
-        // zwrócić obiekt gry. Z tego obiektu można następnie pobrać nazwę gry i dodać do menu oraz metodę zwracającą
-        // samą grę i po kliknięciu w wybrany element listy wywoływać ją, aby doklejać zawartość do gameContainer.
-        // Aby wyświetlić menu należy napisać pętlę, któta przeiteruje po wszystkich wartoťciach enum'a
-        const a=new TicTacToe();
-        a.getGameElement;
+        const menuHeader = <HTMLDivElement>(document.createElement('div'));
+        menuContainer.setAttribute('id','menu');
+        gameContainer.setAttribute('id', 'gameContainer');
+
+        for (const typeOfGame of Object.keys(Games)){
+            if(isNaN(Number(typeOfGame))) continue;
+            const game=gameSelection.getGame(Number(typeOfGame));
+            const display=document.createElement('li');
+            display.addEventListener('click',()=>{
+                gameContainer.innerHTML="";
+                gameContainer.appendChild(game.getGameElement());
+            })
+            list.appendChild(display);
+        }
+        const menuHeaderP = <HTMLElement>document.createElement('p');
+        menuHeaderP.innerHTML = 'Avalible Games:';
+        menuHeader.appendChild(menuHeaderP);
+        menuContainer.appendChild(menuHeader);
         menuContainer.appendChild(list);
-        document.body.appendChild(menuContainer);
-        document.body.appendChild(gameContainer);
+        const main = <HTMLElement>document.createElement('main');
+        main.className = 'mainContainer';
+        main.appendChild(menuContainer);
+        main.appendChild(gameContainer);
+        document.body.appendChild(main);
     }
 }
+
+class avalibleGames{
+    getGame(game:Games):Game{
+        switch(game){
+            case Games.TicTacToe:
+                return new TicTacToe;
+            default:
+                return new TicTacToe;
+        }
+    }
+}
+
+let gameSelection=new avalibleGames();
+new App();
