@@ -4,7 +4,6 @@ import Board from './Board';
 
 export class TicTacToe implements Game {
     name: string;
-
     constructor() {
         this.name = "Tic Tac Toe";
     }
@@ -17,7 +16,7 @@ export class TicTacToe implements Game {
         div.appendChild(header);
         div.appendChild(table);
         let tableSize: number = 3;
-        new Board(tableSize);
+        setTimeout(() => new Board(tableSize), 1);
         return div;
     }
 }

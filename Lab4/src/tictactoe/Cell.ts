@@ -18,10 +18,6 @@ export default class Cell {
         this.setCellInnerHtml();
         return true;
     }
-    refreshCellValue(value: number): void {
-        this.cellValue = value;
-        this.setCellInnerHtml();
-    }
 
     setCellInnerHtml(): void {
         switch (this.cellValue) {

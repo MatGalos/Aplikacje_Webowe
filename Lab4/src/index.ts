@@ -14,7 +14,6 @@ class App {
         const menuContainer = <HTMLDivElement>(document.createElement('div')); // kontener menu dostępnych gier
         const gameContainer = <HTMLDivElement>(document.createElement('div')); // kontener główny ekranu z grą
         const list = document.createElement('ul'); // lista pozycji w menu dostępnych gier
-        const menuHeader = <HTMLDivElement>(document.createElement('div'));
         menuContainer.setAttribute('id','menu');
         gameContainer.setAttribute('id', 'gameContainer');
 
@@ -22,16 +21,13 @@ class App {
             if(isNaN(Number(typeOfGame))) continue;
             const game=gameSelection.getGame(Number(typeOfGame));
             const display=document.createElement('li');
+            display.appendChild(document.createTextNode(game.name));
             display.addEventListener('click',()=>{
                 gameContainer.innerHTML="";
                 gameContainer.appendChild(game.getGameElement());
             })
             list.appendChild(display);
         }
-        const menuHeaderP = <HTMLElement>document.createElement('p');
-        menuHeaderP.innerHTML = 'Avalible Games:';
-        menuHeader.appendChild(menuHeaderP);
-        menuContainer.appendChild(menuHeader);
         menuContainer.appendChild(list);
         const main = <HTMLElement>document.createElement('main');
         main.className = 'mainContainer';
