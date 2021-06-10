@@ -3,7 +3,9 @@ export default class Board {
     cells: Cell[];
     currentSymbol: number;
     tableSize: number;
+    gameFinished: boolean;
     constructor(size: number) {
+        this.gameFinished = false;
         this.currentSymbol = 1;
         this.cells = new Array(size);
         this.tableSize = size;
@@ -20,6 +22,7 @@ export default class Board {
                 i++;
             }
         }
+        this.setHeaderValue(this.currentSymbol);
     }
     setHeaderValue(currSymbol: number): void {
         const header = <HTMLElement>document.getElementById('header');

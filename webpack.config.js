@@ -85,6 +85,15 @@ const config2 = {
           use: 'ts-loader',
           exclude: /node_modules/,
         },
+        {
+          test:/\.s[ac]ss$/i,
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader',
+          ],
+        },
+        {test: /\.ts$/, exclude: /node_modules/, loader: 'ts-loader'}
       ],
     },
     resolve: {

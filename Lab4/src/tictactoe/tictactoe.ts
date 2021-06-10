@@ -8,15 +8,26 @@ export class TicTacToe implements Game {
         this.name = "Tic Tac Toe";
     }
     getGameElement(): HTMLElement {
-        const div = document.createElement('div');
+        const container = document.createElement('div');
+
         const header = document.createElement('div');
-        header.setAttribute('id','tttHeader');
+        header.className = 'gameHeader';
+        const headerValue = document.createElement('p');
+        headerValue.innerHTML = 'Kółko i krzyżyk';
+
+        const gameResponse = document.createElement('div');
+        gameResponse.setAttribute('id','tttHeader');
+        gameResponse.className = 'gameResponse';
+
         const table = document.createElement('table');
         table.setAttribute('id','tictactoe');
-        div.appendChild(header);
-        div.appendChild(table);
+
+        header.appendChild(headerValue);
+        container.appendChild(header);
+        container.appendChild(gameResponse);
+        container.appendChild(table);
         let tableSize: number = 3;
         setTimeout(() => new Board(tableSize), 1);
-        return div;
+        return container;
     }
 }
