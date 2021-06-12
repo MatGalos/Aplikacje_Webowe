@@ -103,4 +103,23 @@ const config2 = {
       filename: 'index.js'
     }
   };
-module.exports = [config1,config2,config3,config4,config5];
+  const config6 = {
+    entry: './Lab6/src/index.ts',
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    resolve: {
+      extensions: [ '.tsx', '.ts', '.js' ],
+    },
+    output: {
+      path: path.resolve(__dirname, 'Lab6/dest'),
+      filename: 'index.js'
+    }
+  };
+module.exports = [config1,config2,config3,config4,config5,config6];

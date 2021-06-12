@@ -6,5 +6,6 @@
       "target": "esnext",
       "removeComments": true,
       "outDir": "./dist",
+      "experimentalDecorators": true
   },
 }
