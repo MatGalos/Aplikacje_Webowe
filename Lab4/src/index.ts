@@ -1,6 +1,7 @@
 import { Games } from "./gamesEnum";
 import { Game } from "./gameModel";
 import { TicTacToe } from "./tictactoe/tictactoe";
+import { RockPaperScissors } from "./rockpaperscissors/rockpaperscissors";
 import './styles/styles.scss';
 import Switcher from './switcher';
 import Back from './back';
@@ -54,6 +55,8 @@ class GameFactory {
         switch (game) {
             case Games.TicTacToe:
                 return new TicTacToe;
+            case Games.RockPaperScissors:
+                return new RockPaperScissors;
             default:
                 throw new Error('This game does not exist');
         }
