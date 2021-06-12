@@ -1,0 +1,17 @@
+@import 'misc';
+#back {
+    position: absolute;
+    background: var(--backBtnColor);
+    width: 100px;
+    height: 40px;
+    top: 150px;
+    left: 100px;
+    text-align: center;
+    font-size: 30px;
+    color:var(--backBtnTextColor);
+    padding:10px;
+  }
+  .backHidden {
+    display: none;
+  }
+  

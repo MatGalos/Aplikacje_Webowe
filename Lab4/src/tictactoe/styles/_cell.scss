@@ -1,0 +1,15 @@
+.cell{
+    width:200px;
+    height:200px;
+    background-color: var(--cellColor);
+    font-size:180px;
+    text-align: center;
+    color:black;
+    border: 2px solid black;
+}
+.winningCell{
+    background:rgb(12, 129, 12);
+}
+.tieCell{
+    background:rgb(48, 148, 194);
+}

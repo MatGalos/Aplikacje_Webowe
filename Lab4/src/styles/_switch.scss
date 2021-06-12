@@ -1,0 +1,20 @@
+@import 'variables';
+
+.switcher {
+    background: var(--switcherColor);
+    width: 75px;
+    height: 40px;
+    position: fixed;
+    color: var(--switcherFontColor);
+    top: $switcherTopPos;
+    right: $switcherRightPos;
+    &:hover {
+      background: var(--switcherHoverColor);
+    }
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    i {
+      font-size:30px;
+    }
+  }

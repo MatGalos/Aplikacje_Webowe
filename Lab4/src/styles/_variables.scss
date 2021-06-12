@@ -1,0 +1,24 @@
+$defaultMargin: 10px;
+:root {
+  --bodyColor: white;
+  --defaultShadow: black;
+  --headerPColor: black;
+  --switcherColor: black;
+  --switcherHoverColor: #7a7878;
+  --switcherFontColor: rgb(238, 235, 235);
+  --backBtnColor: rgb(0, 0, 0);
+  --backBtnTextColor: whitesmoke;
+  --greetingColor: black;
+  --menuHeaderColor: white;
+  --menuBorder: Black;
+  --menuDivBorderBottom: black;
+  --liHover: #b8b6b6;
+  --menuFontColor: black;
+  --gameFontColor:black;
+}
+$switcherTopPos: 40px;
+$switcherRightPos: 40px;
+$menuWidth: 20%;
+$gameSpotWidth: 80%;
+$gameHeaderFontSize: 35px;
+$gameResponseFontSize: 25px;

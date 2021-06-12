@@ -1,5 +1,10 @@
 {
-    "compilerOptions": {
-      "outDir": "dist"
-    }
-  }
+  "compilerOptions": {
+      "sourceMap": true,
+      "strictNullChecks": true,
+      "noImplicitAny": true,
+      "target": "esnext",
+      "removeComments": true,
+      "outDir": "./dist",
+  },
+}

@@ -1,0 +1,9 @@
+@import 'variables';
+@mixin defaultBorder($size, $color){
+    border: $size solid $color;
+}
+
+%defaultPCentering{
+    margin:$defaultMargin;
+    text-align: center;
+}
