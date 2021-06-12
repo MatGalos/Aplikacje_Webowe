@@ -25,7 +25,7 @@ export default class Board {
         this.setHeaderValue(this.currentSymbol);
     }
     setHeaderValue(currSymbol: number): void {
-        const header = <HTMLElement>document.getElementById('header');
+        const header = <HTMLElement>document.getElementById('tttHeader');
         let val: string = "";
         switch (currSymbol) {
             case 1: {
@@ -52,8 +52,11 @@ export default class Board {
         header.innerHTML = val;
     }
     makeMove(cell: Cell): void {
+        if (this.gameFinished)
+            return;
         if (cell.setCellValue(this.currentSymbol)) {
             if (this.checkForGameFinish()) {
+                this.gameFinished = true;
                 return;
             }
             this.currentSymbol *= -1;
@@ -63,7 +66,15 @@ export default class Board {
 
     checkForGameFinish(): boolean {
         const size = this.tableSize;
-        if (this.rowCheck(size) || this.columnCheck(size) || this.diagonalCheck(size)){
+        if (this.rowCheck(size)) {
+            this.setHeaderValue(this.currentSymbol * 10);
+            return true;
+        }
+        if (this.columnCheck(size)) {
+            this.setHeaderValue(this.currentSymbol * 10);
+            return true;
+        }
+        if (this.diagonalCheck(size)) {
             this.setHeaderValue(this.currentSymbol * 10);
             return true;
         }
@@ -91,6 +102,9 @@ export default class Board {
                 }
             }
             if (correctCellsInRow === size) {
+                for (const cell of winningCells) {
+                    cell.htmlElement.classList.add('winningCell');
+                }
                 return true;
             }
             winningCells.length = 0;
@@ -100,6 +114,7 @@ export default class Board {
     columnCheck(size: number): boolean {
         const cells = this.cellsWithActualSymbol();
         const winningCells: Cell[] = [];
+
         if (cells.length < size) {
             return false;
         }
@@ -114,6 +129,9 @@ export default class Board {
                 }
             }
             if (correctCellsInColumn === size) {
+                for (const cell of winningCells) {
+                    cell.htmlElement.classList.add('winningCell');
+                }
                 return true;
             }
             winningCells.length = 0;
@@ -136,6 +154,9 @@ export default class Board {
             }
         }
         if (correctCellsDiagonally === size) {
+            for (const cell of winningCells) {
+                cell.htmlElement.classList.add('winningCell');
+            }
             return true;
         }
         else {
@@ -151,13 +172,19 @@ export default class Board {
             }
         }
         if (correctCellsDiagonally === size) {
+            for (const cell of winningCells) {
+                cell.htmlElement.classList.add('winningCell');
+            }
             return true;
         }
         return false;
     }
     tieCheck(size: number): boolean {
-        const cellsFilled: Cell[] = this.cells.filter(cell => cell.cellValue == undefined || isNaN(cell.cellValue));
+        const cellsFilled: Cell[] = this.cells.filter(cell => cell.cellValue == undefined);
         if (cellsFilled.length === 0) {
+            for (const cell of this.cells) {
+                cell.htmlElement.classList.add('tieCell');
+            }
             return true;
         }
         return false;

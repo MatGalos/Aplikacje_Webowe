@@ -1,11 +1,11 @@
 import { Game } from "../gameModel";
-import Board from './Board';
-
+import Board from "./Board";
 
 export class TicTacToe implements Game {
     name: string;
+
     constructor() {
-        this.name = "Tic Tac Toe";
+        this.name = "Tic Tac toe";
     }
     getGameElement(): HTMLElement {
         const container = document.createElement('div');
@@ -13,7 +13,7 @@ export class TicTacToe implements Game {
         const header = document.createElement('div');
         header.className = 'gameHeader';
         const headerValue = document.createElement('p');
-        headerValue.innerHTML = 'Kółko i krzyżyk';
+        headerValue.innerHTML = 'Tic Tac toe';
 
         const gameResponse = document.createElement('div');
         gameResponse.setAttribute('id','tttHeader');

@@ -1,1 +1,1 @@
-(()=>{var i=new(function(){function i(i,t,n){this.imie=i,this.nazwisko=t,this.wiek=n}return i.prototype.Show=function(){return"<h1>Witaj "+this.imie+" i "+this.nazwisko+" mam "+this.wiek+" lat</h1>"},i}())("John","Blake",11);document.body.innerHTML=i.Show()})();
+(()=>{let i=new class{imie;nazwisko;wiek;constructor(i,t,e){this.imie=i,this.nazwisko=t,this.wiek=e}Show(){return`<h1>Witaj ${this.imie} i ${this.nazwisko} mam ${this.wiek} lat</h1>`}}("John","Blake",11);document.body.innerHTML=i.Show()})();

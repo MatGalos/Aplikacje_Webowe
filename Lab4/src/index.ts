@@ -1,53 +1,63 @@
 import { Games } from "./gamesEnum";
 import { Game } from "./gameModel";
-import {TicTacToe} from './tictactoe/tictactoe'
-import './styles/style.scss';
-
+import { TicTacToe } from "./tictactoe/tictactoe";
+import './styles/styles.scss';
+import Switcher from './switcher';
+import Back from './back';
 class App {
 
     constructor() {
-        this.initMenu();        
+        this.init();
     }
+    init(): void {
+        const menuContainer = <HTMLDivElement>(document.createElement('div'));
+        const gameContainer = <HTMLDivElement>(document.createElement('div'));
+        const menuHeader = <HTMLDivElement>(document.createElement('div'));
+        const list = document.createElement('ul');
 
-    
-
-    initMenu(): void {
-        const menuContainer = <HTMLDivElement>(document.createElement('div')); // kontener menu dostępnych gier
-        const gameContainer = <HTMLDivElement>(document.createElement('div')); // kontener główny ekranu z grą
-        const list = document.createElement('ul'); // lista pozycji w menu dostępnych gier
         menuContainer.setAttribute('id','menu');
+        gameContainer.className = 'gameSpot';
         gameContainer.setAttribute('id', 'gameContainer');
 
-        for (const typeOfGame of Object.keys(Games)){
-            if(isNaN(Number(typeOfGame))) continue;
-            const game=gameSelection.getGame(Number(typeOfGame));
-            const display=document.createElement('li');
-            display.appendChild(document.createTextNode(game.name));
-            display.addEventListener('click',()=>{
-                gameContainer.innerHTML="";
+        for (const gameType of Object.keys(Games)) {
+            if (isNaN(Number(gameType)))
+                continue;
+            const game = gameSwitch.getGame(Number(gameType));
+            const item = document.createElement('li');
+            item.appendChild(document.createTextNode(game.name));
+            item.addEventListener("click", () => {
+                const back = document.getElementById('back');
+                back?.classList.remove('backHidden')
+                menuContainer.setAttribute('hidden','true');
+                gameContainer.innerHTML = "";
                 gameContainer.appendChild(game.getGameElement());
             })
-            list.appendChild(display);
+            list.appendChild(item);
         }
+        const menuHeaderP = <HTMLElement>document.createElement('p');
+        menuHeaderP.innerHTML = 'Avalible Games';
+        menuHeader.appendChild(menuHeaderP);
+        menuContainer.appendChild(menuHeader);
         menuContainer.appendChild(list);
+
         const main = <HTMLElement>document.createElement('main');
         main.className = 'mainContainer';
         main.appendChild(menuContainer);
         main.appendChild(gameContainer);
         document.body.appendChild(main);
+        new Switcher();
+        new Back();
     }
 }
-
-class avalibleGames{
-    getGame(game:Games):Game{
-        switch(game){
+class GameFactory {
+    getGame(game: Games): Game {
+        switch (game) {
             case Games.TicTacToe:
                 return new TicTacToe;
             default:
-                return new TicTacToe;
+                throw new Error('This game does not exist');
         }
     }
 }
-
-let gameSelection=new avalibleGames();
+let gameSwitch = new GameFactory();
 new App();
