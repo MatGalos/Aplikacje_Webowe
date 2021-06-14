@@ -122,4 +122,24 @@ const config2 = {
       filename: 'index.js'
     }
   };
-module.exports = [config1,config2,config3,config4,config5,config6];
+  const config7 = {
+    entry: './Lab7/src/index.ts',
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    resolve: {
+      extensions: [ '.tsx', '.ts', '.js' ],
+    },
+    output: {
+      path: path.resolve(__dirname, 'Lab7/dest'),
+      filename: 'index.js'
+    }
+  };
+  
+module.exports = [config1,config2,config3,config4,config5,config6,config7]; 

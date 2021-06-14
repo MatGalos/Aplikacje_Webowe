@@ -1,3 +1,9 @@
+enum Role {
+    Standard = 'Standard',
+    Moderator = 'Moderator',
+    Admin = 'Admin'
+}
+
 function StandardAccess(constructorFn: Function): void {
     constructorFn.prototype.role = Role.Standard;
 }
@@ -8,11 +14,7 @@ function AdminAccess(constructorFn: Function): void {
     constructorFn.prototype.role = Role.Admin;
 }
 
-enum Role {
-    Standard = 'Standard',
-    Moderator = 'Moderator',
-    Admin = 'Admin'
-}
+
 
 class User {
     name: string;
