@@ -1,15 +1,17 @@
 import { Game } from "../gameModel";
 import Board from "./Board";
 import{logGameRun} from "../Decorators/log"
+import { enable } from "../Decorators/disable";
 import {count} from '../Decorators/count'
 
+@enable
 export class TicTacToe implements Game {
     name: string;
     avalible:boolean;
     constructor() {
         this.name = "Tic Tac toe";
     }
-    @logGameRun
+    @logGameRun  
     getGameElement(): HTMLElement {
         const container = document.createElement('div');
 

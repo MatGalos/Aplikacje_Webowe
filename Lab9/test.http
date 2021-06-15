@@ -1,0 +1,47 @@
+###
+GET http://localhost:3000/products HTTP/1.1
+
+###
+
+POST http://localhost:3000/products HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Gra",
+    "description": "Gra Kółko i krzyżyk",
+    "price": 8,
+    "category": "60c8d9cc82f1743c082f86ae"
+}
+
+
+###
+PUT http://localhost:3000/products HTTP/1.1
+content-type: application/json
+
+{
+    "id": "60ae9ecd08037f08c4b74c0e",
+    "name": "Kamera 5",
+    "description": "Telewizor plazmowy",
+    "price": 15000
+}
+
+###
+DELETE http://localhost:3000/products HTTP/1.1
+content-type: application/json
+
+{
+    "id": "60ae9ed108037f08c4b74c0f",
+}
+
+
+
+###
+GET http://localhost:3000/categories HTTP/1.1
+
+###
+POST http://localhost:3000/categories HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Gry wideo"
+}
