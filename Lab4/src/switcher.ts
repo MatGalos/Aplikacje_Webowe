@@ -6,6 +6,7 @@ class Switcher {
     init(): void {
         const themeSwitch = <HTMLElement>document.createElement('div');
         themeSwitch.classList.add('switcher');
+        themeSwitch.innerHTML="Dark";
 
         themeSwitch.addEventListener('click', () => {
             if(document.body.hasAttribute('dark-theme')){

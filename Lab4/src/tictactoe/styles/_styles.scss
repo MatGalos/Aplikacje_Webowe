@@ -1,4 +1,62 @@
-@import 'cell';
-:root{
-    --cellColor:white;
+@import "cell";
+@import "../../styles/misc";
+@import "../../styles/variables";
+@import "../../styles/darkTheme";
+
+:root {
+  --cellColor: white;
+}
+.sessionBtn {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--switcherFontColor);
+}
+
+#undoBtn {
+  background-color: var(--switcherColor);
+  &:hover {
+    background: var(--switcherHoverColor);
+  }
+  &:active {
+    background: rgb(236, 64, 64);
+  }
+  &[disabled] {
+    background: rgb(77, 77, 77);
+  }
+}
+#saveBtn {
+  background-color:  var(--switcherColor);
+  &:hover {
+    background: var(--switcherHoverColor);
+  }
+  &:active {
+    background: rgb(236, 64, 64);
+  }
+  &[disabled] {
+    background: rgb(77, 77, 77);
+  }
+}
+#loadBtn {
+  background-color:var(--switcherColor);
+  &:hover {
+    background: var(--switcherHoverColor);
+  }
+  &:active {
+    background: rgb(236, 64, 64);
+  }
+  &[disabled] {
+    background: rgb(77, 77, 77);
+  }
+}
+.buttonsHolder {
+  width: 500px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 250px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

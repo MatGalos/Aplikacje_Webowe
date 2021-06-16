@@ -31,7 +31,7 @@ export class TicTacToe implements Game {
         container.appendChild(header);
         container.appendChild(gameResponse);
         container.appendChild(table);
-        let tableSize: number = 3;
+        let tableSize: number = Math.floor(Math.random()*6+3);
         setTimeout(() => new Board(tableSize), 1);
         return container;
     }
