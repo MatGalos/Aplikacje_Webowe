@@ -28,7 +28,7 @@ exports.add = (req, res) => {
 }
 
 exports.update = (req, res) => {
-  Product.updateOne({_id: req.body.id}, {
+  Product.updateOne({_id: req.body._id}, {
     name: req.body.name,
     description: req.body.description,
     price: req.body.price
@@ -36,5 +36,5 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-  Product.deleteOne({_id: req.body.id}).exec();
+  Product.deleteOne({_id: req.body._id}).exec();
 }

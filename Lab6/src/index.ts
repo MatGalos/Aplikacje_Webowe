@@ -24,7 +24,6 @@ class User {
     toString(): string {
         return `${this.name} ${this.surname} ${this.role}`;
     }
-
 }
 
 @StandardAccess

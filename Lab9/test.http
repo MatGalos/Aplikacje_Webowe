@@ -19,11 +19,13 @@ PUT http://localhost:3000/products HTTP/1.1
 content-type: application/json
 
 {
-    "id": "60ae9ecd08037f08c4b74c0e",
+    "category": "60c8d17b82f1743c082f86a9",
     "name": "Kamera 5",
     "description": "Telewizor plazmowy",
     "price": 15000
 }
+
+
 
 ###
 DELETE http://localhost:3000/products HTTP/1.1
