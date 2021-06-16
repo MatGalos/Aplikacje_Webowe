@@ -10,7 +10,7 @@ export class NoteBoard {
     lstorage:NoteStore;
 
     constructor() {
-        this.storage = new SessionStorageStore();
+        //this.storage = new SessionStorageStore();
         this.lstorage= new LocalStorageStore();
         this.addTitleInput();
         this.addContentInput();
@@ -49,7 +49,7 @@ export class NoteBoard {
         addButton.addEventListener('click', () => {
             let title = (<HTMLInputElement>document.getElementById('title')).value;
             let content = (<HTMLInputElement>document.getElementById('content')).value;    
-            this.storage.addNote(new Note(title, content));
+            //this.storage.addNote(new Note(title, content));
             this.lstorage.addNote(new Note(title, content));
             this.refreshList();
         });
@@ -59,11 +59,11 @@ export class NoteBoard {
 
     public refreshList(): void {
         this.notesContainer.innerHTML = '';
-        const notes = <Note[]>this.storage.getNotes();
+        //const notes = <Note[]>this.storage.getNotes();
         const lnotes = <Note[]>this.lstorage.getNotes();
-        if (!notes && !lnotes)
+        if (/*!notes */ !lnotes)
             return;
-        notes.forEach( (item) => {
+        lnotes.forEach( (item) => {
             const titleDiv = <HTMLDivElement>(document.createElement('div'));
             titleDiv.innerHTML = item.title;
             const contentDiv = <HTMLDivElement>(document.createElement('div'));
@@ -73,7 +73,7 @@ export class NoteBoard {
             removeBtn.setAttribute('data-id', item.id.toString());
             removeBtn.addEventListener('click', (e) => {
                 const id = (<HTMLButtonElement>e.target).getAttribute('data-id') as Guid;
-                this.storage.deleteNote(id);
+               // this.storage.deleteNote(id);
                 this.lstorage.deleteNote(id);
                 this.refreshList();
             });

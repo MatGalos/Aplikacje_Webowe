@@ -218,7 +218,7 @@ export default class Board {
         buttonHolder.classList.add('buttonsHolder');
 
         const undoBtn = <HTMLButtonElement>document.createElement('button');
-        undoBtn.innerHTML = 'cofnij ostatni ruch';
+        undoBtn.innerHTML = 'Last move';
         undoBtn.classList.add('sessionBtn')
         undoBtn.setAttribute('id', 'undoBtn');
         undoBtn.setAttribute('disabled', 'true');
@@ -228,14 +228,14 @@ export default class Board {
         });
 
         const saveBtn = <HTMLButtonElement>document.createElement('button');
-        saveBtn.innerHTML = 'zapisz stan gry';
+        saveBtn.innerHTML = 'Save game';
         saveBtn.classList.add('sessionBtn');
         saveBtn.setAttribute('id', 'saveBtn');
         saveBtn.setAttribute('disabled', 'true');
         saveBtn.addEventListener('click', () => this.saveGame())
 
         const loadBtn = <HTMLButtonElement>document.createElement('button');
-        loadBtn.innerHTML = 'załaduj zapisaną gre';
+        loadBtn.innerHTML = 'load game';
         loadBtn.classList.add('sessionBtn');
         loadBtn.setAttribute('id', 'loadBtn');
         loadBtn.setAttribute('disabled', 'true');

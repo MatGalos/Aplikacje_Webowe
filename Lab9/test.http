@@ -8,8 +8,8 @@ content-type: application/json
 
 {
     "name": "Gra",
-    "description": "Gra Kółko i krzyżyk",
-    "price": 8,
+    "description": "Gra w zbijaka",
+    "price": 20,
     "category": "60c8d9cc82f1743c082f86ae"
 }
 
